@@ -12,8 +12,6 @@ class Persona {
     this.edad = edad;
     console.log("Atributos inicializados");
   }
-
-  mostrar() {}
 }
 
 class Alumno extends Persona {
@@ -25,12 +23,25 @@ class Alumno extends Persona {
 }
 
 function registrar(nombre, edad, grado, grupo) {
-  let val1 = prompt("Introduce el nombre");
-  let val2 = prompt("Introduce la edad");
-  let val3 = prompt("Introduce el grado");
-  let val4 = prompt("Introduce el grupo");
-  nuevo = new Alumno(val1, val2, val3, val4);
+  var val1 = prompt("Introduce el nombre");
+  var val2 = prompt("Introduce la edad");
+  var val3 = prompt("Introduce el grado");
+  var val4 = prompt("Introduce el grupo");
+  var nuevo = new Alumno(val1, val2, val3, val4);
   listaAlumnos.push(nuevo);
+}
+
+function mostrar() {
+  alert("Mostrando alumnos en consola");
+  listaAlumnos.forEach((index) => {
+    let nombre = index.nombre;
+    let edad = index.edad;
+    let grado = index.grado;
+    let grupo = index.grupo;
+    console.log(
+      `Nombre: ${nombre}. Edad: ${edad}. Grado: ${grado}. Grupo: ${grupo}.`
+    );
+  });
 }
 
 var menu =
@@ -46,8 +57,7 @@ do {
       registrar();
       break;
     case 2:
-      alert("Mostrando alumnos en consola");
-      console.log(listaAlumnos);
+      mostrar();
       break;
 
     default:
